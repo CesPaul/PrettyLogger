@@ -5,7 +5,7 @@ import com.google.gson.JsonParser
 import com.google.gson.JsonSyntaxException
 import io.ktor.client.plugins.logging.*
 
-class PrettyLoggerKtor(private val logMessage: (String) -> Unit): Logger {
+class PrettyLogger(private val logMessage: (String) -> Unit): Logger {
 
     override fun log(message: String) {
         if (printBetweenSymbols(
