@@ -45,7 +45,7 @@ class PrettyLogger(private val logMessage: (String) -> Unit): Logger {
     private fun printJson(message: String) {
         try {
             val prettyPrintJson = GsonBuilder().setPrettyPrinting()
-                .create().toJson(JsonParser().parse(message))
+                .create().toJson(JsonParser.parseString(message))
             printAll('\n' + prettyPrintJson)
         } catch (m: JsonSyntaxException) {
             printAll(message)

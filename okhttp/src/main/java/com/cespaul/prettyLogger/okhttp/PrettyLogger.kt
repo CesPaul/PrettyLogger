@@ -10,7 +10,7 @@ class PrettyLogger(private val logMessage: (String) -> Unit) : HttpLoggingInterc
         if (message.startsWith("{") || message.startsWith("[")) {
             try {
                 val prettyPrintJson =
-                    GsonBuilder().setPrettyPrinting().create().toJson(JsonParser().parse(message))
+                    GsonBuilder().setPrettyPrinting().create().toJson(JsonParser.parseString(message))
                 logMessage(prettyPrintJson)
             } catch (m: JsonSyntaxException) {
                 logMessage(message)
