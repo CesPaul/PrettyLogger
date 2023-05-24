@@ -18,7 +18,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.cespaul.prettyLogger.sample.ui.PostsList
-import com.cespaul.sample.R
+import com.cespaul.prettylogger.sample.R
 
 
 class MainActivity : AppCompatActivity() {
