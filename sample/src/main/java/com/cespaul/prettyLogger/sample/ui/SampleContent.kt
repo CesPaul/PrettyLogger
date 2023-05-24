@@ -3,8 +3,7 @@ package com.cespaul.prettyLogger.sample.ui
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.*
-import com.cespaul.prettyLogger.sample.model.TestPostModel
-import com.cespaul.prettyLogger.sample.model.TestPostModelItem
+import com.cespaul.prettyLogger.sample.model.PostItem
 import kotlinx.coroutines.flow.Flow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,10 +16,9 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import androidx.compose.ui.unit.dp
 
-
 @Composable
-fun PostsList(postsFlow: Flow<TestPostModel>) {
-    val posts = remember { mutableStateListOf<TestPostModelItem>() }
+fun PostsList(postsFlow: Flow<List<PostItem>>) {
+    val posts = remember { mutableStateListOf<PostItem>() }
     val items by postsFlow.collectAsState(emptyList())
 
     LaunchedEffect(postsFlow) {
@@ -40,7 +38,7 @@ fun PostsList(postsFlow: Flow<TestPostModel>) {
 @Preview
 @Composable
 private fun ItemRow(
-    @PreviewParameter(TestPostModelItemProvider::class) item: TestPostModelItem
+    @PreviewParameter(PostItemProvider::class) item: PostItem,
 ) {
     Card(
         shape = RoundedCornerShape(4.dp),
@@ -68,10 +66,10 @@ private fun ItemRow(
     }
 }
 
-class TestPostModelItemProvider : PreviewParameterProvider<TestPostModelItem> {
-    override val values: Sequence<TestPostModelItem>
+class PostItemProvider : PreviewParameterProvider<PostItem> {
+    override val values: Sequence<PostItem>
         get() = sequence {
-            TestPostModelItem(
+            PostItem(
                 body = "meli",
                 id = 5374,
                 title = "malorum",

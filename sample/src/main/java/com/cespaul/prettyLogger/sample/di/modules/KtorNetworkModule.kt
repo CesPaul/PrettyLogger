@@ -3,7 +3,9 @@ package com.cespaul.prettyLogger.sample.di.modules
 import io.ktor.client.*
 import io.ktor.client.engine.android.*
 import io.ktor.client.plugins.*
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.plugins.logging.*
+import io.ktor.serialization.kotlinx.json.*
 import org.koin.dsl.module
 
 val ktorNetworkModule = module {
@@ -21,6 +23,10 @@ private fun provideKtorHttpClient(prettyLogger: com.cespaul.prettyLogger.ktor.Pr
             requestTimeoutMillis = KTOR_TIMEOUT
             connectTimeoutMillis = KTOR_TIMEOUT
             socketTimeoutMillis = KTOR_TIMEOUT
+        }
+
+        install(ContentNegotiation) {
+            json()
         }
     }
 }

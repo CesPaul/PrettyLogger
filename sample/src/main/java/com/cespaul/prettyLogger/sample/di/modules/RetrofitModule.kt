@@ -1,6 +1,6 @@
 package com.cespaul.prettyLogger.sample.di.modules
 
-import com.cespaul.prettyLogger.sample.network.retrofit.RetrofitSevice
+import com.cespaul.prettyLogger.sample.network.retrofit.RetrofitService
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -17,8 +17,8 @@ private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Bui
     .client(okHttpClient)
     .build()
 
-private fun provideRetrofitService(retrofit: Retrofit): RetrofitSevice =
-    retrofit.create(RetrofitSevice::class.java)
+private fun provideRetrofitService(retrofit: Retrofit): RetrofitService =
+    retrofit.create(RetrofitService::class.java)
 
 
 private const val BASE_URL = "https://jsonplaceholder.typicode.com"
