@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "PrettyLogger"
-include ':okhttp'
-include ':ktor'
+include(":okhttp")
+include(":ktor")
 
-include ':sample'
+include(":sample")
