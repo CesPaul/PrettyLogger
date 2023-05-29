@@ -4,7 +4,7 @@ PrettyLogger is a handy logger for Okhttp and Ktor.
 
 <details> 
   <summary>Screenshot </summary>
-   <img src="https://github.com/CesPaul/PrettyLogger/assets/43243212/750c14b8-59af-44dd-806d-3acf5eaf5644" width="600" height="300">
+   <img src="https://github.com/CesPaul/PrettyLogger/assets/43243212/750c14b8-59af-44dd-806d-3acf5eaf5644" style="width: auto; height: 300px">
 </details>
 
 
