@@ -1,10 +1,11 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Top-level build file where you can add configuration options common to all sub-projects/modules.g
+
 plugins {
-    id("com.android.application") version "7.3.1" apply false
-    id("com.android.library") version "7.3.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.7.20" apply false
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.7.20"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.7.20"
+    id("com.android.application") version "8.0.2" apply false
+    id("com.android.library") version "8.0.2" apply false
+    id("org.jetbrains.kotlin.android") version "1.8.20" apply false
+    id("org.jetbrains.kotlin.plugin.serialization") version "1.8.20"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.8.20"
 }
 
 allprojects {
@@ -14,14 +15,4 @@ allprojects {
 
 subprojects {
     apply(plugin = "maven-publish")
-
-//    publishing {
-//        publications {
-//            maven(MavenPublication) {
-//                groupId = project.group
-//                artifactId = project.name
-//                version = project.version
-//            }
-//        }
-//    }
 }
