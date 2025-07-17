@@ -40,10 +40,13 @@ afterEvaluate {
         publications {
             val release by publications.registering(MavenPublication::class) {
                 from(components["release"])
-                artifact(sourcesJar.get())
+                artifact(sourcesJar.get()) {
+                    classifier = "sources"
+                }
                 artifactId = "ktor"
                 groupId = "com.github.cespaul.prettylogger"
                 version = "0.1.4"
+                suppressPomMetadataWarningsFor("release")
             }
         }
     }
