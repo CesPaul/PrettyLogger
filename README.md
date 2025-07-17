@@ -18,7 +18,7 @@ Add the following dependency to get a library into your build:
 #### Ktor:
 	implementation("com.github.CesPaul.PrettyLogger:ktor:0.1.4")
 
-#### Ktor_jvm:
+#### Ktor JVM:
 	implementation("com.github.CesPaul.PrettyLogger:ktor_jvm:0.1.4")
 
 ## How to use
