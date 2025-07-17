@@ -13,18 +13,13 @@ PrettyLogger is a handy logger for Okhttp and Ktor.
 Add the following dependency to get a library into your build:
 
 #### Okhttp:
-	implementation 'com.github.CesPaul.PrettyLogger:okhttp:0.1.3'
-	
-or
-
-	implementation("com.github.CesPaul.PrettyLogger:okhttp:0.1.3")
+	implementation("com.github.CesPaul.PrettyLogger:okhttp:0.1.4")
 	
 #### Ktor:
-	implementation 'com.github.CesPaul.PrettyLogger:ktor:0.1.3'
-	
-or
-	
-	implementation("com.github.CesPaul.PrettyLogger:ktor:0.1.3")
+	implementation("com.github.CesPaul.PrettyLogger:ktor:0.1.4")
+
+#### Ktor_jvm:
+	implementation("com.github.CesPaul.PrettyLogger:ktor_jvm:0.1.4")
 
 ## How to use
 #### Okhttp:
