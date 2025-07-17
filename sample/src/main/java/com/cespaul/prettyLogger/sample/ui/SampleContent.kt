@@ -29,7 +29,7 @@ fun PostsList(postsFlow: Flow<List<PostItem>>) {
     }
 
     LazyColumn {
-        itemsIndexed(items) { i, post ->
+        itemsIndexed(items) { _, post ->
             ItemRow(post)
         }
     }
