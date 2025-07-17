@@ -17,3 +17,4 @@ include(":okhttp")
 include(":ktor")
 
 include(":sample")
+include(":ktor_jvm")
