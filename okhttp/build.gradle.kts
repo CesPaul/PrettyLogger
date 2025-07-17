@@ -10,22 +10,20 @@ android {
 
     defaultConfig {
         minSdk = 21
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
-        named("release") {
+        getByName("release") {
             isMinifyEnabled = false
-            setProguardFiles(
-                listOf(
-                    getDefaultProguardFile("proguard-android-optimize.txt"),
-                    "proguard-rules.pro"
-                )
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -33,21 +31,21 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
 
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(android.sourceSets.getByName("main").java.srcDirs)
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 afterEvaluate {
     publishing {
         publications {
-            val release by publications.registering(MavenPublication::class) {
+            create<MavenPublication>("release") {
                 from(components["release"])
-                artifact(sourcesJar.get())
-                artifactId = "okhttp"
                 groupId = "com.github.cespaul.prettylogger"
+                artifactId = "okhttp"
                 version = "0.1.4"
             }
         }

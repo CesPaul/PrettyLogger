@@ -7,18 +7,12 @@ plugins {
 android {
     namespace = "com.cespaul.prettylogger.ktor"
     compileSdk = 34
-
     defaultConfig {
         minSdk = 21
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
     }
-
     buildTypes {
-        named("release") {
+        release {
             isMinifyEnabled = false
-            setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
         }
     }
     compileOptions {
@@ -28,31 +22,24 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-}
 
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(android.sourceSets.getByName("main").java.srcDirs)
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 afterEvaluate {
     publishing {
         publications {
-            val release by publications.registering(MavenPublication::class) {
+            create<MavenPublication>("release") {
                 from(components["release"])
-                artifact(sourcesJar.get()) {
-                    classifier = "sources"
-                }
-                artifactId = "ktor"
                 groupId = "com.github.cespaul.prettylogger"
+                artifactId = "ktor"
                 version = "0.1.4"
-                suppressPomMetadataWarningsFor("release")
             }
         }
-    }
-    
-    tasks.named("generateMetadataFileForReleasePublication") {
-        dependsOn(sourcesJar)
     }
 }
 
