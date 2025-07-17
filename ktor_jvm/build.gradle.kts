@@ -13,6 +13,13 @@ java {
 group = "com.github.cespaul.prettylogger"
 version = "0.1.4"
 
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+}
+
 publishing {
     publications {
         create<MavenPublication>("release") {
